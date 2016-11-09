@@ -28,16 +28,18 @@ namespace FindAllTheWords
         {
             InitializeComponent();
             gfx = this.CreateGraphics();
+            gfx.Clear(Color.White);
             time = new Stopwatch();
 
             dictionary = File.ReadAllLines("Dictionary.txt");
-            
+
             addTextBoxes(4, 4, new Point(20, 20), 10);
             time.Restart();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             time.Restart();
             FillTries();
             FillGraph();
@@ -247,6 +249,7 @@ namespace FindAllTheWords
                         this.Controls.Add(newTextBox);
                         textboxes[x, y] = newTextBox;
                         //newTextBox.Text = x.ToString() + ", " + y.ToString();
+                        newTextBox.TextChanged += NewTextBox_TextChanged;
 
                         position.Y += size.Y + spaceing;
                     }
@@ -255,6 +258,7 @@ namespace FindAllTheWords
                 }
             }
         }
+
 
         Trie TrieByStartLetter(char letter)
         {
@@ -335,7 +339,7 @@ namespace FindAllTheWords
                 TextBoxSides oppositeSide = OppositeSide(connectingSide);
                 PointF thisSide = GetTextBoxSide(textboxNode.Value, connectingSide);
                 PointF otherSide = GetTextBoxSide(textboxNode.Children[0].Value, oppositeSide);
-                
+
                 Pen p = new Pen(pen.Color);
                 p.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
 
@@ -433,7 +437,30 @@ namespace FindAllTheWords
                     return TextBoxSides.RightMiddle;
             }
         }
-        
+
+        Random random = new Random();
+        char[] letters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'o', 'm', 'n', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        private void randomButton_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            gfx.Clear(Color.White);
+            for (int x = 0; x < textboxes.GetLength(0); x++)
+            {
+                for (int y = 0; y < textboxes.GetLength(1); y++)
+                {
+                    textboxes[x, y].Text = letters[random.Next(26)].ToString();
+                }
+            }
+        }
+
+
+        private void NewTextBox_TextChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            gfx.Clear(Color.White);
+        }
     }
 }
 
