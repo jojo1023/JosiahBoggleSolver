@@ -461,6 +461,20 @@ namespace FindAllTheWords
             listBox2.Items.Clear();
             gfx.Clear(Color.White);
         }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            listBox2.Items.Clear();
+            gfx.Clear(Color.White);
+            for (int x = 0; x < textboxes.GetLength(0); x++)
+            {
+                for (int y = 0; y < textboxes.GetLength(1); y++)
+                {
+                    textboxes[x, y].Text = "";
+                }
+            }
+        }
     }
 }
 

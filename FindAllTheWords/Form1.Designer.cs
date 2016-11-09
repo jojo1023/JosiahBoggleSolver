@@ -34,13 +34,14 @@
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.randomButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // goButton
             // 
             this.goButton.Location = new System.Drawing.Point(364, 11);
             this.goButton.Name = "goButton";
-            this.goButton.Size = new System.Drawing.Size(75, 23);
+            this.goButton.Size = new System.Drawing.Size(65, 23);
             this.goButton.TabIndex = 16;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
@@ -80,19 +81,30 @@
             // 
             // randomButton
             // 
-            this.randomButton.Location = new System.Drawing.Point(494, 11);
+            this.randomButton.Location = new System.Drawing.Point(509, 11);
             this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(75, 23);
+            this.randomButton.Size = new System.Drawing.Size(60, 23);
             this.randomButton.TabIndex = 21;
             this.randomButton.Text = "Random";
             this.randomButton.UseVisualStyleBackColor = true;
             this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(435, 11);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(68, 23);
+            this.clearButton.TabIndex = 22;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(789, 450);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.randomButton);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
@@ -114,6 +126,7 @@
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button randomButton;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 
