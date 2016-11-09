@@ -335,9 +335,11 @@ namespace FindAllTheWords
                 TextBoxSides oppositeSide = OppositeSide(connectingSide);
                 PointF thisSide = GetTextBoxSide(textboxNode.Value, connectingSide);
                 PointF otherSide = GetTextBoxSide(textboxNode.Children[0].Value, oppositeSide);
+                
+                Pen p = new Pen(pen.Color);
+                p.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
 
-                gfx.DrawLine(pen, thisSide, otherSide);
-                //gfx.DrawLine(pen, otherSide, new PointF());
+                gfx.DrawLine(p, thisSide, otherSide);
                 ShowTextBoxPath(textboxNode.Children[0], color, pen);
             }
         }
