@@ -30,11 +30,12 @@
         {
             this.goButton = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.timeText = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.randomButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.loadLable = new System.Windows.Forms.Label();
+            this.resultsLable = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // goButton
@@ -53,13 +54,6 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(205, 173);
             this.treeView1.TabIndex = 17;
-            // 
-            // timeText
-            // 
-            this.timeText.Location = new System.Drawing.Point(82, 356);
-            this.timeText.Name = "timeText";
-            this.timeText.Size = new System.Drawing.Size(241, 20);
-            this.timeText.TabIndex = 18;
             // 
             // listBox1
             // 
@@ -99,16 +93,35 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // loadLable
+            // 
+            this.loadLable.AutoSize = true;
+            this.loadLable.Location = new System.Drawing.Point(587, 20);
+            this.loadLable.Name = "loadLable";
+            this.loadLable.Size = new System.Drawing.Size(57, 13);
+            this.loadLable.TabIndex = 23;
+            this.loadLable.Text = "Load Time";
+            // 
+            // resultsLable
+            // 
+            this.resultsLable.AutoSize = true;
+            this.resultsLable.Location = new System.Drawing.Point(587, 40);
+            this.resultsLable.Name = "resultsLable";
+            this.resultsLable.Size = new System.Drawing.Size(0, 13);
+            this.resultsLable.TabIndex = 24;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(789, 450);
+            this.Controls.Add(this.resultsLable);
+            this.Controls.Add(this.loadLable);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.randomButton);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.timeText);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.goButton);
             this.Name = "Form1";
@@ -122,11 +135,12 @@
         #endregion
         private System.Windows.Forms.Button goButton;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.TextBox timeText;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Button randomButton;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Label loadLable;
+        private System.Windows.Forms.Label resultsLable;
     }
 }
 

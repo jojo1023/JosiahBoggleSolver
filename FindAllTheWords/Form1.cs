@@ -27,34 +27,29 @@ namespace FindAllTheWords
         public Form1()
         {
             InitializeComponent();
+            time = new Stopwatch();
+            time.Restart();
             gfx = this.CreateGraphics();
             gfx.Clear(Color.White);
-            time = new Stopwatch();
+            
 
             dictionary = File.ReadAllLines("Dictionary.txt");
 
             addTextBoxes(4, 4, new Point(20, 20), 10);
-            time.Restart();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            time.Restart();
             FillTries();
             FillGraph();
-            timeText.Text += time.ElapsedTicks.ToString();
-            time.Restart();
-            FillTries();
-            FillGraph();
-            timeText.Text += ", " + time.ElapsedTicks.ToString();
-            time.Stop();
-
             foreach (Trie trie in tries)
             {
                 TreeNode rootNode = treeView1.Nodes.Add(trie.StartLetter.ToString() + " " + trie.BaseNode.IsWord.ToString());
                 fillTreeView(rootNode, trie.BaseNode);
             }
+            loadLable.Text = "Load Time: " + time.ElapsedMilliseconds.ToString() + " Milliseconds";
+            time.Reset();
         }
 
         public void FillTries()
@@ -123,12 +118,8 @@ namespace FindAllTheWords
             time.Restart();
             words = FindWordsAlgorithm();
             ShowWords(words);
-            timeText.Text += ", " + time.ElapsedTicks.ToString();
-            time.Restart();
-            words = FindWordsAlgorithm();
-            ShowWords(words);
-            timeText.Text += ", " + time.ElapsedTicks.ToString();
-            time.Stop();
+            resultsLable.Text = words.Count.ToString() + " Results in " + time.ElapsedMilliseconds.ToString() + " Milliseconds";
+            time.Reset();
         }
 
         public List<WordPath> FindWordsAlgorithm()
