@@ -48,7 +48,7 @@ namespace FindAllTheWords
                 TreeNode rootNode = treeView1.Nodes.Add(trie.StartLetter.ToString() + " " + trie.BaseNode.IsWord.ToString());
                 fillTreeView(rootNode, trie.BaseNode);
             }
-            loadLable.Text = "Load Time: " + time.ElapsedMilliseconds.ToString() + " Milliseconds";
+            loadLable.Text = "Loaded " + dictionary.Length.ToString() + " Words in " + time.ElapsedMilliseconds.ToString() + " Milliseconds";
             time.Reset();
         }
 
